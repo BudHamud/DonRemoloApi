@@ -9,6 +9,10 @@ homeRouter.get("/", async (req, res) => {
     res.json(result)
 })
 
+homeRouter.get("/test", async (req, res) => {
+    res.json({ message: "testeo desde node" })
+})
+
 // homeRouter.post("/", async (req, res) => {
 //     const result = await manager.addProd(req.body)
 //     res.json(result)
