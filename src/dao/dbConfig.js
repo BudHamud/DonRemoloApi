@@ -1,8 +1,11 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
+import "dotenv/config";
 
-const URI = 'mongodb+srv://BudHamud:Hamuddi5973@cluster0.5sis9i4.mongodb.net/don-remolo?retryWrites=true&w=majority'
+const URI = process.env.LOCAL;
 
 mongoose.set("strictQuery", true);
-mongoose.connect(URI, {
-    serverSelectionTimeoutMS: 5000
-  }).catch(err => console.log(err.reason));
+mongoose
+  .connect(URI, {
+    serverSelectionTimeoutMS: 5000,
+  })
+  .catch((err) => console.log(err.reason));

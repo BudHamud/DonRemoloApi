@@ -1,11 +1,12 @@
 import express from "express"
 import homeRouter from "./routes/home.router.js"
 import "./dao/dbConfig.js"
+import "dotenv/config";
 
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT;
 
-app.use('/home', homeRouter)
+app.use('/', homeRouter)
 
 export const server = app.listen(PORT, () => {
     console.log("Connected " + PORT);
