@@ -28,6 +28,16 @@ class Manager {
       return err;
     }
   }
+
+  async deleteProd(id) {
+    try {
+      const deleted = await productModel.findByIdAndDelete(id)
+      return deleted 
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
 }
 
 export default Manager;

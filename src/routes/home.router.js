@@ -9,13 +9,14 @@ homeRouter.get("/", async (req, res) => {
     res.json(result)
 })
 
-homeRouter.get("/test", async (req, res) => {
-    res.json({ message: "testeo desde node" })
+homeRouter.post("/", async (req, res) => {
+    const result = await manager.addProd(req.body)
+    res.json(result)
 })
 
-// homeRouter.post("/", async (req, res) => {
-//     const result = await manager.addProd(req.body)
-//     res.json(result)
-// })
+homeRouter.delete("/", async (req, res) => {
+    const result = await manager.deleteProd(req.params.id)
+    res.json(result)
+})
 
 export default homeRouter;
