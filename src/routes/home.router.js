@@ -31,4 +31,9 @@ homeRouter.post("/json", async (req, res) => {
   res.json(result);
 });
 
+homeRouter.delete("/json/:id", async (req, res) => {
+    const result = await local.deleteProd(req.params.id);
+    res.json(result);
+  });
+
 export default homeRouter;

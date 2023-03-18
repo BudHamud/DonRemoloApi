@@ -7,6 +7,8 @@ mongoose.set("strictQuery", true);
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB without failures");
   })
   .catch((err) => console.log(err.reason));

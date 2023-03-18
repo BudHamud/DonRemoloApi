@@ -7,5 +7,14 @@
     "img": "pizzaMediana.jpg",
     "category": "pizzas",
     "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Pizza Chica",
+    "description": "Para una persona",
+    "price": 1400,
+    "img": "pizzaChica.jpg",
+    "category": "pizzas",
+    "quantity": 1
   }
 ]

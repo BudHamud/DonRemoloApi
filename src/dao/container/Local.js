@@ -18,8 +18,10 @@ class Local {
     try {
       const read = await fs.readFile(this.path, "utf-8");
       const prods = JSON.parse(read);
-      const id = prods.length === 0 ? 0 : prods[0].id + 1
+      const id = prods.length === 0 ? 0 : Number(prods[0].id) + 1
       prods.push({ id, ...obj })
+      await fs.writeFile(this.path, JSON.stringify(prods, null, 2), "utf-8");
+      return prods
     } catch (err) {
       console.log(err);
       return err;
@@ -28,8 +30,16 @@ class Local {
 
   async deleteProd(id) {
     try {
-      const deleted = await productModel.findByIdAndDelete(id);
-      return deleted;
+      const read = await fs.readFile(this.path, "utf-8");
+      const prods = JSON.parse(read);
+      const isHere = prods.find((e) => e.id === id);
+      if (isHere) {
+        const filter = prods.filter((e) => e.id !== id);
+        await fs.writeFile(this.path, JSON.stringify(filter, null, 2), "utf-8");
+        return { message: "Producto eliminado", prods: prods };
+      } else {
+        return { error: "No encontrado" };
+      }
     } catch (err) {
       console.log(err);
     }
