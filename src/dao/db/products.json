@@ -1,0 +1,11 @@
+[
+  {
+    "id": "0",
+    "name": "Pizza Mediana",
+    "description": "Con quesito roquefort",
+    "price": 1600,
+    "img": "pizzaMediana.jpg",
+    "category": "pizzas",
+    "quantity": 1
+  }
+]

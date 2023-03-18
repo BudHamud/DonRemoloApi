@@ -11,7 +11,7 @@ class Manager {
     }
   }
 
-  async addProd(obj) {
+  async addProd(obj = aux) {
     try {
       const aux = {
         name: "Pizza Mediana",
@@ -21,8 +21,7 @@ class Manager {
         category: "pizzas",
         quantity: 1,
       };
-      const elif = obj ? obj : aux
-      await productModel.create({ elif });
+      await productModel.create(obj)
     } catch (err) {
       console.log(err);
       return err;

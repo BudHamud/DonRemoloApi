@@ -6,6 +6,7 @@ const URI = process.env.MONGO_URL;
 mongoose.set("strictQuery", true);
 mongoose
   .connect(URI, {
-    serverSelectionTimeoutMS: 5000,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
   .catch((err) => console.log(err.reason));
